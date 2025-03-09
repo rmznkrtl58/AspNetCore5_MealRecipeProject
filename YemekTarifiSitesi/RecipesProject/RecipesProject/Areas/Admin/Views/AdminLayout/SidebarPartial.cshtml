@@ -1,0 +1,153 @@
+﻿<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+        <a class="sidebar-brand brand-logo" href="../../index.html"><img src="~/admin/dist/assets/images/logo.svg" alt="logo" /></a>
+        <a class="sidebar-brand brand-logo-mini" href="../../index.html"><img src="~/admin/dist/assets/images/logo-mini.svg" alt="logo" /></a>
+    </div>
+    <ul class="nav">
+        @await Component.InvokeAsync("Sidebar_Profile")
+        <li class="nav-item nav-category">
+            <span class="nav-link">Site İşlemleri</span>
+        </li>
+        
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="/Admin/Message/Index/">
+                <span class="menu-icon">
+                    <i class="mdi mdi-message"></i>
+                </span>
+                <span class="menu-title">Gelen Mesajlar</span>
+            </a>
+        </li> <li class="nav-item menu-items">
+            <a class="nav-link" href="/Admin/Message/MessagesSend/">
+                <span class="menu-icon">
+                    <i class="mdi mdi-message"></i>
+                </span>
+                <span class="menu-title">Giden Mesajlar</span>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="/Admin/Message/SendMessage/">
+                <span class="menu-icon">
+                    <i class="mdi mdi-message"></i>
+                </span>
+                <span class="menu-title">Yeni Mesaj</span>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="/Admin/Contact/Index/">
+                <span class="menu-icon">
+                    <i class="mdi mdi-file-document"></i>
+                </span>
+                <span class="menu-title">Kullanıcı Yorumları</span>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="/Admin/VisitorApi/Index/">
+                <span class="menu-icon">
+                    <i class="mdi mdi-file-document"></i>
+                </span>
+                <span class="menu-title">Ziyaretçiler (Api)</span>
+            </a>
+        </li>
+      @if(User.IsInRole("Admin")){
+        <li class="nav-item menu-items">
+            <a class="nav-link"  href="/Admin/Default/Index/"  >
+                <span class="menu-icon">
+                    <i class="mdi mdi-laptop"></i>
+                </span>
+                <span class="menu-title">Hakkımızda</span>
+                <i class="menu-arrow"></i>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link"  href="/Admin/WhyUs/Index/" >
+                <span class="menu-icon">
+                    <i class="mdi mdi-laptop"></i>
+                </span>
+                <span class="menu-title">Biz Kimiz</span>
+                <i class="menu-arrow"></i>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="/Admin/MealRecipes/Index/">
+                <span class="menu-icon">
+                    <i class="mdi mdi-playlist-play"></i>
+                </span>
+                <span class="menu-title">Onaylanan Tarifler</span>
+                <i class="menu-arrow"></i>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="/Admin/SuggestRecipe/Index/">
+                <span class="menu-icon">
+                    <i class="mdi mdi-laptop"></i>
+                </span>
+                <span class="menu-title">Onay Bekleyen Tarifler</span>
+                <i class="menu-arrow"></i>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="/Admin/Category/Index/">
+                <span class="menu-icon">
+                    <i class="mdi mdi-playlist-play"></i>
+                </span>
+                <span class="menu-title">Kategoriler</span>
+                <i class="menu-arrow"></i>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="/Admin/Event/Index/">
+                <span class="menu-icon">
+                    <i class="mdi mdi-table-large"></i>
+                </span>
+                <span class="menu-title">Duyurular</span>
+                <i class="menu-arrow"></i>
+            </a>
+        </li>
+     
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="/Admin/Role/Index/">
+                <span class="menu-icon">
+                    <i class="mdi mdi-contacts"></i>
+                </span>
+                <span class="menu-title">Roller</span>
+                <i class="menu-arrow"></i>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="/Admin/AssignRole/Index/">
+                <span class="menu-icon">
+                    <i class="mdi mdi-contacts"></i>
+                </span>
+                <span class="menu-title">Rol Atamaları</span>
+                <i class="menu-arrow"></i>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="/Admin/Testimonial/Index/">
+                <span class="menu-icon">
+                    <i class="mdi mdi-contacts"></i>
+                </span>
+                <span class="menu-title">Referanslarımız</span>
+                <i class="menu-arrow"></i>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="/Admin/Team/Index/">
+                <span class="menu-icon">
+                    <i class="mdi mdi-security"></i>
+                </span>
+                <span class="menu-title">Ekip Arkadaşlarımız</span>
+                <i class="menu-arrow"></i>
+            </a>
+        </li>
+        }
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="/Login/LogOut">
+                <span class="menu-icon">
+                    <i class="mdi mdi-logout"></i>
+                </span>
+                <span class="menu-title">Çıkış Yap</span>
+            </a>
+        </li>
+    </ul>
+</nav>

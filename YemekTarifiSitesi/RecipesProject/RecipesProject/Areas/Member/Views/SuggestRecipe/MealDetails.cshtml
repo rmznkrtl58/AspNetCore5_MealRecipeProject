@@ -1,0 +1,43 @@
+﻿@model UpdateMealDTO
+@{
+    ViewData["Title"] = "MealDetails";
+    Layout = "~/Areas/Member/Views/Shared/_memberlayout.cshtml";
+}
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Yemek Tarifi Detayları:</h4>
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <div class="form-group" style="margin-top:13px">
+                 <img src="@Model.MealImage" style="width:300px;height:200px;margin-bottom:20px" />
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1" style="color:red">Yemek İsmi:</label>
+                    <input  disabled type="text" asp-for="MealName" class="form-control" id="exampleInputName1" placeholder="Yemeğin İsmini Giriniz...">
+                    <span asp-validation-for="MealName"></span>
+                </div>
+                <div class="form-group" style="margin-top:13px;color:red">
+                    <label for="exampleInputName1">Kategori Seçiniz...</label>
+                    @Html.DropDownListFor(x => x.CategoryId, (IEnumerable<SelectListItem>)TempData["dropdownC"], new { @class = "form-control", @disabled = "" })
+                </div>
+                <div class="form-group" style="margin-top:13px">
+                    <label for="exampleInputEmail3" style="color:red">Ana Başlık:</label>
+                    @Html.TextAreaFor(x => x.MainHeader, new { @class = "form-control", @placeholder = "Ana Başlığı Giriniz...", @disabled = "" })
+                    <span asp-validation-for="MainHeader"></span>
+                </div>
+                <div class="form-group" style="margin-top:13px">
+                    <label for="exampleInputEmail3" style="color:red">Kısa Açıklama:</label>
+                    @Html.TextAreaFor(x => x.ShortDescription, new { @class = "form-control", @rows = 2, @placeholder = "Kısa Açıklamayı Giriniz...", @disabled = "" })
+                    <span asp-validation-for="ShortDescription"></span>
+                </div>
+                <div class="form-group" style="margin-top:13px">
+                    <label for="exampleInputEmail3" style="color:red">Yemeğin Tarifi:</label>
+                    @Html.TextAreaFor(x => x.LongDescription, new { @class = "form-control", @rows = 5, @placeholder = "Yemek Tarifini Giriniz...", @disabled = "" })
+                    <span asp-validation-for="LongDescription"></span>
+                </div>
+            
+            </form>
+        </div>
+    </div>
+</div>
+

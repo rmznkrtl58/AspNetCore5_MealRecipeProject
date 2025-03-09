@@ -1,0 +1,44 @@
+﻿@using DTOLayer.DTOs.MessageDTOs
+@model List<ListMessageDTO>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Gelen Mesajlarım:</h4>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th> Resim: </th>
+                            <th> Ad Soyad: </th>
+                            <th> Konu: </th>
+                            <th> Tarih: </th>
+                            <th> Mesaj İçeriği </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            <tr>
+                                <td class="py-1">
+                                    <img src="@x.SenderUser.ProfileImage" alt="image" />
+                                </td>
+                                <td> @x.SenderUser.Name @x.SenderUser.Surname</td>
+                                <td> @x.Subject</td>
+                                <td> @Convert.ToDateTime(x.MessageDate).ToString("dd/MM/yyyy")</td>
+                                <td> <a href="/Admin/Message/MessageDetails/@x.MessageId" class="btn btn-warning">İçerik</a> </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

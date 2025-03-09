@@ -1,0 +1,58 @@
+﻿@model List<EventListDTO>
+<section id="events" class="events section">
+
+    <img class="slider-bg" src="~/web/assets/img/events-bg.jpg" alt="" data-aos="fade-in">
+
+    <div class="container">
+
+        <div class="swiper init-swiper" data-aos="fade-up" data-aos-delay="100">
+            <script type="application/json" class="swiper-config">
+                {
+                  "loop": true,
+                  "speed": 600,
+                  "autoplay": {
+                    "delay": 5000
+                  },
+                  "slidesPerView": "auto",
+                  "pagination": {
+                    "el": ".swiper-pagination",
+                    "type": "bullets",
+                    "clickable": true
+                  }
+                }
+            </script>
+            <div class="swiper-wrapper">
+                @foreach(var x in Model){
+                <div class="swiper-slide">
+                    <div class="row gy-4 event-item">
+                        <h3>Etkinliklerimiz</h3>
+                        <div class="col-lg-6">
+                            <img src="@x.Image" class="img-fluid" alt="">
+                        </div>
+                        <div class="col-lg-6 pt-4 pt-lg-0 content">
+                            <h3>@x.MainHeader</h3>
+                            <div class="price">
+                                <p>Ödül: <span>@x.Price</span></p>
+                            </div>
+                            <p class="fst-italic">
+                                @x.SubDescription
+                            </p>
+                            <ul>
+                                <li><i class="bi bi-check2-circle"></i> <span>@x.Item1</span></li>
+                                <li><i class="bi bi-check2-circle"></i> <span>@x.Item2</span></li>
+                                <li><i class="bi bi-check2-circle"></i> <span>@x.Item3</span></li>
+                            </ul>
+                            <p>
+                               Not: Sistemimiz İlerleyen Dönemlerde Daha Fazla Etkinlik Sunacaktır.Abone Olup Bildirimleri Açmayı Unutmayın!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+    </div>
+
+</section><!-- /Events Section -->

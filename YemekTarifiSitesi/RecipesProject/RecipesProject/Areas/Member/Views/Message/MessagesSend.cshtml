@@ -1,0 +1,48 @@
+﻿@using DTOLayer.DTOs.MessageDTOs
+@model List<ListMessageDTO>
+@{
+    ViewData["Title"] = "MessagesSend";
+    Layout = "~/Areas/Member/Views/Shared/_memberlayout.cshtml";
+}
+<style>
+    .messageimg {
+        border-radius: 50%;
+        width:40px;
+        height:35px;
+        margin-left:10px
+    }
+</style>
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Giden Mesajlarım:</h4>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th> Resim: </th>
+                            <th> Ad Soyad: </th>
+                            <th> Konu: </th>
+                            <th> Tarih: </th>
+                            <th> Mesaj İçeriği </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <img src="@x.ReceiverUser.ProfileImage" alt="image" class="messageimg" />
+                                </td>
+                                <td> @x.ReceiverUser.Name @x.ReceiverUser.Surname</td>
+                                <td> @x.Subject</td>
+                                <td> @Convert.ToDateTime(x.MessageDate).ToString("dd/MM/yyyy")</td>
+                                <td> <a href="/Member/Message/ReceiverMessageDetails/@x.MessageId" class="btn btn-warning">İçerik</a> </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

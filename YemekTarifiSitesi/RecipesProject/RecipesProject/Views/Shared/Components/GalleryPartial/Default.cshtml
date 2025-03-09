@@ -1,0 +1,26 @@
+﻿@model List<MealImageListDTO>
+<section id="gallery" class="gallery section">
+
+    
+    <div class="container section-title" data-aos="fade-up">
+        <h2>RESİM GALERİMİZ</h2>
+        <p>Son Eklenen Tariflerimizin Fotoğrafları</p>
+    </div>
+
+    <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row g-0">
+            @foreach(var x in Model){
+            <div class="col-lg-3 col-md-4">
+                <div class="gallery-item">
+                    <a href="#" class="glightbox" data-gallery="images-gallery">
+                        <img src="@x.MealImage" style="width:400px;height:250px" alt="" class="img-fluid">
+                    </a>
+                </div>
+            </div>
+            }
+        </div>
+
+    </div>
+
+</section>

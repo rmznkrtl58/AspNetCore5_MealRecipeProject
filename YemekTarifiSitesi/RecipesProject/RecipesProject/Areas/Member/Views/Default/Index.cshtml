@@ -1,0 +1,206 @@
+﻿@model UpdateUserDTO
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Member/Views/Shared/_memberlayout.cshtml";
+    
+}
+<section class="section profile">
+    <div class="row">
+        <div class="col-xl-4">
+
+            <div class="card">
+                <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+
+                    <img  src="@Model.imageUrl" alt="Profile" class="rounded-circle">
+                    <h2>@Model.name @Model.surname</h2>
+                    <h3>@Model.status</h3>
+                    <div class="social-links mt-2">
+                        <a href="@Model.Twitter" class="twitter"><i class="bi bi-twitter"></i></a>
+                        <a href="@Model.Instagram" class="instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="@Model.Linkedin" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-xl-8">
+
+            <div class="card">
+                <div class="card-body pt-3">
+                    <!-- Bordered Tabs -->
+                    <ul class="nav nav-tabs nav-tabs-bordered">
+
+                        <li class="nav-item">
+                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Bilgilerim</button>
+                        </li>
+
+                        <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Bilgilerimi Düzenle</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content pt-2">
+
+                        <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                            <h5  class="card-title">Hakkımda</h5>
+                            <p style="font-size:18px" class="small fst-italic">@Model.about</p>
+
+                            <h5 class="card-title">Profil Detayları</h5>
+
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label ">Kullanıcı Adı</div>
+                                <div style="font-weight:bold" class="col-lg-9 col-md-8">@Model.userName</div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Meslek</div>
+                                <div style="font-weight:bold" class="col-lg-9 col-md-8">@Model.status</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">İL/İLÇE</div>
+                                <div style="font-weight:bold" class="col-lg-9 col-md-8">@Model.city</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">E-Posta</div>
+                                <div style="font-weight:bold" class="col-lg-9 col-md-8">@Model.mail</div>
+                            </div>
+                            @{string text="";
+                                if (Model.phoneNumber == null)
+                                {
+                                    text = "Sistemde Numarasını Belirtmemiş,İstediği Zaman Güncelleyebilir.";
+                                }
+                                else
+                                {
+                                    text = Model.phoneNumber;
+                                }
+                            }
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Telefon</div>
+                                <div style="font-weight:bold" class="col-lg-9 col-md-8">@text</div>
+                            </div>
+
+                        </div>
+
+                        <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+
+                            <!-- Profile Edit Form -->
+                            <form method="post">
+                                <div class="row mb-3">
+                                    <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Fotoğraf</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <img src="@Model.imageUrl" alt="Profile">
+                                        <div class="pt-2">
+                                            <input class="btn btn-primary btn-sm" type="file"  asp-for="picture"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Ad:</label>
+                                    <div class="col-md-8 col-lg-9">
+                                       <input asp-for="name" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Soyad:</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input asp-for="surname" class="form-control" />
+                                    </div>
+                                </div>
+                               
+
+                                <div class="row mb-3">
+                                    <label for="Job" class="col-md-4 col-lg-3 col-form-label">Kullanıcı Adı:</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input  asp-for="userName" type="text" class="form-control" id="Job" >
+                                    </div>
+                                </div>
+
+
+                                <div class="row mb-3">
+                                    <label for="Address" class="col-md-4 col-lg-3 col-form-label">Telefon</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input  asp-for="phoneNumber" type="text" class="form-control" id="Address" >
+                                    </div>
+                                </div>
+
+
+                                <div class="row mb-3">
+                                    <label for="Email" class="col-md-4 col-lg-3 col-form-label">Mail:</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input  asp-for="mail" type="email" class="form-control" id="Email" >
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="Email" class="col-md-4 col-lg-3 col-form-label">Meslek:</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input asp-for="status" type="text" class="form-control" id="Email">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="Email" class="col-md-4 col-lg-3 col-form-label">Şifre:</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input asp-for="password" type="password" class="form-control" id="Email">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="Email" class="col-md-4 col-lg-3 col-form-label">Şifre Tekrar:</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input  asp-for="confirmPassword" type="password" class="form-control" id="Email">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="Email" class="col-md-4 col-lg-3 col-form-label">İl/İlçe:</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input  asp-for="city" type="text" class="form-control" id="Email">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="Twitter" class="col-md-4 col-lg-3 col-form-label">Twitter Adresi:</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input  asp-for="Twitter" type="text" class="form-control" id="Twitter" >
+                                    </div>
+                                </div>
+
+                              
+
+                                <div class="row mb-3">
+                                    <label for="Instagram" class="col-md-4 col-lg-3 col-form-label">Instagram Adresi:</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input  asp-for="Instagram" type="text" class="form-control" id="Instagram" >
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="Linkedin" class="col-md-4 col-lg-3 col-form-label">Linkedin Adresi:</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input  asp-for="Linkedin" type="text" class="form-control" id="Linkedin" >
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="about" class="col-md-4 col-lg-3 col-form-label">Açıklama:</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <textarea  asp-for="about" class="form-control" id="about" style="height: 100px" rows="7"></textarea>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button  class="btn btn-primary">Değişiklikleri Kaydet</button>
+                                </div>
+                            </form>
+
+                        </div>
+
+                       
+
+
+                    </div><!-- End Bordered Tabs -->
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

@@ -1,0 +1,24 @@
+﻿@model List<WhyUsListDTO>
+<section id="why-us" class="why-us section">
+
+    <div class="container section-title" data-aos="fade-up">
+        <h2>BİZ KİMİZ?</h2>
+        <p>Sevgiyle Hazırlanan Tarifler, Mutfağınıza İlham Katıyor!</p>
+    </div>
+  
+    <div class="container">
+      
+        <div class="row gy-4">
+            @foreach (var x in Model)
+            {
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-item">
+                    <h4>@x.MainHeader</h4>
+                    <p>@x.Description</p>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+   
+</section>

@@ -1,0 +1,73 @@
+﻿@using EntityLayer.Concrete
+@model ContactUs
+@*Ajax için scriptini kullanmamız lazım*@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<section id="contact" class="contact section">
+    <div class="container section-title" data-aos="fade-up">
+        <h2>İLETİŞİM</h2>
+        <p>Bize Ulaşın!</p>
+    </div>
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+           @await Component.InvokeAsync("ContactsPartial")
+
+            <div class="col-lg-8">
+                <form method="post" class="php-email-form" >
+                    <div class="row gy-4">
+
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" asp-for="NameSurname" placeholder="Adınız Soyadınız" id="txtname" required="">
+                        </div>
+
+                        <div class="col-md-6 ">
+                            <input type="email" class="form-control" asp-for="Mail" placeholder="E-posta Adresiniz" id="txtmail" required="">
+                        </div>
+
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" asp-for="Subject"  placeholder="Konu" id="txtsubject" required="">
+                        </div>
+
+                        <div class="col-md-12">
+                            <textarea class="form-control" asp-for="Message" rows="6" placeholder="Mesajınız" id="txtmessage" required=""></textarea>
+                        </div>
+
+                        <div class="col-md-12 text-center">
+                            <button id="btnadd" type="submit">Gönder</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                <iframe style="border:0; width: 100%; height: 400px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24077.45005961859!2d28.992969249992882!3d41.03222888746659!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab78eb4cc28d7%3A0xd6cc13bd2c633762!2zw5xza8O8ZGFyLCBLdXpndW5jdWssIDM0Njc0IMOcc2vDvGRhci_EsHN0YW5idWw!5e0!3m2!1str!2str!4v1739990057806!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<script>
+    @*İletişim-> Veri tabanına kaydetme (AJAX)*@
+        $("#btnadd").click(function () {
+
+        let Values = {
+            //veri tabanındaki sütunlara atama yapıyorum
+                NameSurname: $("#txtname").val(),
+                Mail: $("#txtmail").val(),
+                Subject: $("#txtsubject").val(),
+                Message: $("#txtmessage").val()
+        };
+        $.ajax(
+            {
+                type: "Post",
+                    url: "/Default/AddContact/",
+                data: Values,
+                success: function (func) {
+                    let result = jQuery.parseJSON(func);
+                    alert("Görüşleriniz Admine Başarıyla Gönderildi.")
+                }
+
+            });
+    });
+</script>

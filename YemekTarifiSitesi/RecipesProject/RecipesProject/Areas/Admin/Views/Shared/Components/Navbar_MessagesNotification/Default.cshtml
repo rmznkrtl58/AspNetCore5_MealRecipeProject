@@ -1,0 +1,18 @@
+﻿@using DTOLayer.DTOs.MessageDTOs
+@model List<ListMessageDTO>
+<div class="dropdown-menu dropdown-menu-end navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+    <h6 class="p-3 mb-0">Mesajlar </h6>
+    @foreach(var x in Model){
+    <div class="dropdown-divider"></div>
+        <a href="/Admin/Message/MessageDetails/@x.MessageId" class="dropdown-item preview-item">
+        <div class="preview-thumbnail">
+            <img src="@x.SenderUser.ProfileImage" alt="image" class="rounded-circle profile-pic">
+        </div>
+        <div class="preview-item-content">
+            <p class="preview-subject ellipsis mb-1">@x.SenderUser.Name sana mesaj göndermek istiyor.</p>
+            <p class="text-muted mb-0"> @Convert.ToDateTime(x.MessageDate).ToString("dd/MM/yyyy") </p>
+        </div>
+    </a>
+    }
+    <p class="p-3 mb-0 text-center">@Model.Count Yeni Mesaj</p>
+</div>

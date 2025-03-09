@@ -1,0 +1,55 @@
+﻿@model List<EventListDTO>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    int test = 0;
+    string caption = "";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Etkinliklerimiz</h4>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Ana Başlık:</th>
+                            <th>Fiyat:</th>
+                            <th>Durum:</th>
+                            <th>Sil</th>
+                            <th>Detaylar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            if (x.DeleteStatus == true)
+                            {
+                                caption = "Aktif";
+                            }
+                            else
+                            {
+                                caption = "Pasif";
+                            }
+                            test += 1;
+
+                            <tr>
+                                <td>@test</td>
+                                <td>@x.MainHeader</td>
+                                <td>@x.Price</td>
+                                <td>@caption</td>
+                                <td><a href="/Admin/Event/DeleteEvent/@x.EventId/" class="btn btn-danger">Sil</a></td>
+                                <td><a href="/Admin/Event/EditEvent/@x.EventId/" class="btn btn-warning">Detaylar</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <a href="/Admin/Event/AddEvent/" class="btn btn-success">Etkinlik Ekle</a>
+    </div>
+</div>
+
+

@@ -1,0 +1,22 @@
+﻿@model AddCategoryDTO
+@{
+    ViewData["Title"] = "AddCategory";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Kategori Ekleme Paneli:</h4>
+            <form class="forms-sample" method="post">
+                <div class="form-group">
+                    <label for="exampleInputName1">Kategori Adı:</label>
+                    <input type="text" asp-for="CategoryName" class="form-control" id="exampleInputName1" placeholder="Kategori Adını Giriniz...">
+                    <span asp-validation-for="CategoryName"></span>
+                </div>
+                <button class="btn btn-primary me-2">Kaydet</button>
+                <button class="btn btn-dark">İptal Et</button>
+            </form>
+        </div>
+    </div>
+</div>
+

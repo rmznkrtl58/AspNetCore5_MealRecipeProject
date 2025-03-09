@@ -1,0 +1,48 @@
+﻿<section id="book-a-table" class="book-a-table section">
+    
+    <div class="container section-title" data-aos="fade-up">
+        <h2>TARİF ÖNERİN!</h2>
+        <p>Aklınıza Gelen Ve Uyguladığınız Tarifleri Bizlere Gönderin İnceleyip Yayınlayalım.
+            (Not:Tarifleri Önerebilmeniz Ve Sisteme Düşmesi İçin Giriş Yapınız...)
+        </p>
+    </div>
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <form action="#" method="post"  class="php-email-form">
+            <div class="row gy-4">
+                <div>
+                    <input type="text" class="form-control" id="name" placeholder="Yemeğin Adını Giriniz...">
+                </div>
+                <div>
+                    <input type="email" class="form-control" id="email" placeholder="Yemek İçin Kısa Bir Açıklama Giriniz...">
+                </div>
+                <div class="form-group mt-3">
+                    <textarea class="form-control" name="message" rows="5" placeholder="Yaptığınız Tarifi Giriniz..."></textarea>
+                </div>
+                <div class="form-control">
+                    <label for="yemekler">Bir Kategori Seçin:</label>
+                    <select id="yemekler" name="yemekler">
+                        <option value="kebap">Kebap</option>
+                        <option value="lahmacun">Lahmacun</option>
+                        <option value="pide">Pide</option>
+                        <option value="mantı">Mantı</option>
+                        <option value="çorba">Çorba</option>
+                        <option value="pilav">Pilav</option>
+                        <option value="baklava">Baklava</option>
+                    </select>
+                </div>
+                <div class="form-control">
+                    <label for="yemekler">Yaptığınız Yemek İle İlgili Fotoğraf Yükleyin:</label>
+                    <input type="file" class="form-control" id="phone" placeholder="Resim Giriniz...">
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Bizlere Tarifinizi Gönderdiğiniz İçin Teşekkür Ederiz.</div>
+                <button type="submit">Gönder</button>
+            </div>
+        </form>
+    </div>
+</section>

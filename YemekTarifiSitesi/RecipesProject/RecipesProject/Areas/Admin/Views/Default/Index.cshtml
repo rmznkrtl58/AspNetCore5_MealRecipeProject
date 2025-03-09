@@ -1,0 +1,54 @@
+﻿@model AboutUpdateDTO
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Hakkımızda</h4>
+            <p class="card-description"> Hakkımızda Bilgilerini Düzenleme Sayfası </p>
+            <form class="forms-sample" method="post">
+                @Html.HiddenFor(x=>x.AboutId)
+                <div class="form-group">
+                    <label for="exampleInputName1">Ana Başlık:</label>
+                    <input type="text" asp-for="TopHeader" class="form-control" id="exampleInputName1" placeholder="Ana Başlığı Giriniz...">
+                    <span asp-validation-for="TopHeader" ></span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Alt Başlık:</label>
+                    <input type="text" asp-for="SubHeader" class="form-control" id="exampleInputEmail3" placeholder="Alt Başlığı Giriniz...">
+                    <span asp-validation-for="SubHeader"></span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword4">Madde 1:</label>
+                    <input type="text" asp-for="Item1" class="form-control" id="exampleInputPassword4" placeholder="1.Maddeyi Giriniz...">
+                    <span asp-validation-for="Item1"></span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword4">Madde 2:</label>
+                     <input type="text" asp-for="Item2" class="form-control" id="exampleInputPassword4" placeholder="2.Maddeyi Giriniz...">
+                    <span asp-validation-for="Item2"></span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword4">Madde 3:</label>
+                    <input type="text" asp-for="Item3" class="form-control" id="exampleInputPassword4" placeholder="3.Maddeyi Giriniz...">
+                    <span asp-validation-for="Item3"></span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword4">Resim:</label>
+                    <input type="text" asp-for="Image" class="form-control" id="exampleInputPassword4" placeholder="Resim Url'ini Giriniz...">
+                    <span asp-validation-for="Image"></span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputCity1">Açıklama:</label>
+                    <input type="text" asp-for="Description" class="form-control" id="exampleInputCity1" placeholder="Açıklamalarınızı Giriniz...">
+                    <span asp-validation-for="Description"></span>
+                </div>
+                <button  class="btn btn-primary me-2">Güncelle</button>
+                <button class="btn btn-dark">İptal Et</button>
+            </form>
+        </div>
+    </div>
+</div>
+

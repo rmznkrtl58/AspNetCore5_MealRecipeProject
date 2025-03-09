@@ -1,0 +1,28 @@
+﻿@using DTOLayer.DTOs.MessageDTOs
+@model List<ListMessageDTO>
+<ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
+    <li class="dropdown-header" style="color:blue">
+        Aşağıda Gelen Mesajlarınız Bulunmaktadır.
+    </li>
+    @foreach(var x in Model){
+    <li>
+        <hr class="dropdown-divider">
+    </li>
+
+    <li class="message-item">
+        <a href="/Member/Message/MessageDetails/@x.MessageId">
+            <img src="@x.SenderUser.ProfileImage" alt="" class="rounded-circle">
+            <div>
+                <h4 style="font-weight:bolder">@x.SenderUser.Name @x.SenderUser.Surname</h4>
+                <p style="color:red">@Convert.ToDateTime(x.MessageDate).ToString("dd/MM/yyyy") Tarihinde Gelen Mesaj</p>
+            </div>
+        </a>
+    </li>
+    }
+    <li>
+        <hr class="dropdown-divider">
+    </li>
+    <li class="dropdown-footer">
+        <a href="/Member/Message/Index/">Tüm Mesajları Görüntüleyin.</a>
+    </li>
+</ul>

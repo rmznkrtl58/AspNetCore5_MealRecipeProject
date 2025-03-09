@@ -1,0 +1,46 @@
+﻿@model InsertMealDTO
+@{
+    ViewData["Title"] = "AddMeal";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Yemek Tarifi Ekleme Sayfası:</h4>
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="exampleInputName1">Yemek İsmi:</label>
+                    <input type="text" asp-for="MealName" class="form-control" id="exampleInputName1" placeholder="Yemeğin İsmini Giriniz...">
+                    <span asp-validation-for="MealName"></span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Kategori Seçiniz...</label>
+                    @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewData["dc"], new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Ana Başlık:</label>
+                    @Html.TextAreaFor(x => x.MainHeader, new { @class = "form-control", @rows = 5, @placeholder = "Ana Başlığı Giriniz..." })
+                    <span asp-validation-for="MainHeader"></span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Kısa Açıklama:</label>
+                    @Html.TextAreaFor(x => x.ShortDescription, new { @class = "form-control", @rows = 5, @placeholder = "Kısa Açıklamayı Giriniz..." })
+                    <span asp-validation-for="ShortDescription"></span>
+                </div>
+                 <div class="form-group">
+                    <label for="exampleInputEmail3">Yemeğin Tarifi:</label>
+                    @Html.TextAreaFor(x => x.LongDescription, new { @class = "form-control", @rows = 5, @placeholder = "Yemek Tarifini Giriniz..." })
+                    <span asp-validation-for="LongDescription"></span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Yemeğin Resmini Seçiniz...</label>
+                    <input type="file" asp-for="Image" class="form-control" />
+                </div>
+                <button class="btn btn-primary me-2">Kaydet</button>
+                <button class="btn btn-dark">İptal Et</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+

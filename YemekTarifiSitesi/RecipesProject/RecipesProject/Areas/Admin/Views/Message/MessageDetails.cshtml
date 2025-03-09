@@ -1,0 +1,30 @@
+﻿@using DTOLayer.DTOs.MessageDTOs
+@model MessageDetailsDTO
+@{
+    ViewData["Title"] = "MessageDetails";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Mesajın İçeriği:</h4>
+            <form class="forms-sample" method="post">
+                <div class="form-group">
+                    <label for="exampleInputName1">Gönderenin Maili:</label>
+                    <input type="text" readonly asp-for="SenderUser.Email" class="form-control" id="exampleInputName1" >
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Konu:</label>
+                    <input type="text" readonly asp-for="Subject" class="form-control" id="exampleInputName1">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Mesaj:</label>
+                    <textarea readonly asp-for="Content"  class="form-control"></textarea>
+                </div>
+                <a style="margin-top:6px" href="/Admin/Message/DeleteMessage/@Model.MessageId" class="btn btn-danger">Sil</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,37 @@
+﻿@using DTOLayer.DTOs.VisitorApiDTOs
+@model UpdateVisitorDTO
+@{
+    ViewData["Title"] = "VisitorDetails";
+    Layout = "~/Areas/Admin/Views/Shared/_Adminlayout.cshtml";
+}
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Ziyaretçi Güncelleme Sayfası (Api)</h4>
+            <form class="forms-sample" method="post">
+                @Html.HiddenFor(x=>x.VisitorId)
+                <div class="form-group">
+                    <label for="exampleInputName1">Ziyaretçi Adı Soyadı:</label>
+                    <input type="text" asp-for="NameSurname" class="form-control" id="exampleInputName1" placeholder="Ad Soyad Giriniz...">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Ziyaretçi Maili:</label>
+                    @Html.TextBoxFor(x => x.Mail, new { @class = "form-control", @placeholder = "Mail Adresini Giriniz..." })
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Ziyaretçi Telefonu:</label>
+                    @Html.TextBoxFor(x => x.Phone, new { @class = "form-control", @placeholder = "Telefon Numarasını Giriniz..." })
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Ziyaretçi Şehir:</label>
+                    @Html.TextBoxFor(x => x.City, new { @class = "form-control", @placeholder = "Şehri Giriniz..." })
+                </div>
+                <button class="btn btn-primary me-2">Güncelle</button>
+                <button class="btn btn-dark">İptal Et</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+

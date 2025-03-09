@@ -1,0 +1,23 @@
+﻿@model List<MealListDTO>
+<section id="menu" class="menu section">
+    <div class="container section-title" data-aos="fade-up">
+        <h2>TARİFLERİMİZ</h2>
+        <p>Birbirinden Güzel Yemek Tariflerimizi Denemelisiniz!</p>
+    </div>
+    <div class="container isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+        <div style="margin-top:-30px" class="row isotope-container" >
+            @foreach(var x in Model){
+            <div class="col-lg-6 menu-item isotope-item filter-starters">
+                <img src="@x.MealImage" class="menu-img" alt="">
+                <div class="menu-content">
+                    <a href="#">@x.MealName</a>
+                </div>
+                <div style="margin-top:5px" class="menu-ingredients">
+                    @x.ShortDescription
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</section>

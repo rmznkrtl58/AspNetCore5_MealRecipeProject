@@ -1,0 +1,40 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+    @await Html.PartialAsync("/Areas/Member/Views/MemberLayout/HeadPartial.cshtml")
+
+<body>
+
+
+    @await Html.PartialAsync("/Areas/Member/Views/MemberLayout/NavbarPartial.cshtml")
+   
+    @await Html.PartialAsync("/Areas/Member/Views/MemberLayout/SidebarPartial.cshtml")
+
+    <main id="main" class="main">
+         
+        <div class="pagetitle">
+            @* <h1>@ViewBag.t1</h1> *@
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">@ViewBag.t2</li>
+                    <li class="breadcrumb-item active">@ViewBag.t3</li>
+                </ol>
+            </nav>
+        </div>
+        @RenderBody()
+       
+
+    </main>
+   
+  
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    @await Html.PartialAsync("/Areas/Member/Views/MemberLayout/ScriptPartial.cshtml")
+
+</body>
+
+</html>

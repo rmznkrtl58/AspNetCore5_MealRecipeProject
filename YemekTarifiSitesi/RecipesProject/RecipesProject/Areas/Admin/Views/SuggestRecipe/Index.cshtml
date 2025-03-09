@@ -1,0 +1,43 @@
+﻿@model List<MealListDTO>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Adminlayout.cshtml";
+}
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Onay Bekleyen Yemek Tarifleri:</h4>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th> Resim: </th>
+                            <th> Yemek: </th>
+                            <th> Ana Başlık: </th>
+                            <th> Sil </th>
+                            <th> Detaylar </th>
+                            <th> Onayla </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            <tr>
+                                <td class="py-1">
+                                    <img src="@x.MealImage" alt="image" />
+                                </td>
+                                <td> @x.MealName</td>
+                                <td> @x.MainHeader </td>
+                                <td> <a href="/Admin/SuggestRecipe/DeleteMeal/@x.MealId" class="btn btn-danger">Sil</a> </td>
+                                <td> <a href="/Admin/SuggestRecipe/MealDetails/@x.MealId" class="btn btn-warning">Detaylar</a> </td>
+                                <td> <a href="/Admin/SuggestRecipe/ConfirmedMeal/@x.MealId" class="btn btn-info">Onayla</a> </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+

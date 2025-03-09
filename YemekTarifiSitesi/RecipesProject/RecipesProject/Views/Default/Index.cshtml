@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+@await Html.PartialAsync("/Views/DefaultLayout/HeadPartial.cshtml")
+
+<body class="index-page">
+
+    <header id="header" class="header fixed-top">
+
+
+        @await Html.PartialAsync("/Views/DefaultLayout/NavbarPartial.cshtml")
+
+    </header>
+
+    <main class="main">
+
+        @await Component.InvokeAsync("IntroductionMenü")
+        @await Component.InvokeAsync("AboutPartial")
+        @await Component.InvokeAsync("WhyUsPartial")
+        @await Component.InvokeAsync("MealsPartial")
+        @await Component.InvokeAsync("RecipesPartial")
+        @await Component.InvokeAsync("EventsPartial")
+        @await Component.InvokeAsync("TestimonialPartial")
+        @await Component.InvokeAsync("GalleryPartial")
+        @await Component.InvokeAsync("TeamPartial")
+        @await Html.PartialAsync("/Views/Default/ContactPartial.cshtml")
+
+    </main>
+
+    @await Html.PartialAsync("/Views/DefaultLayout/FooterPartial.cshtml")
+
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <div id="preloader"></div>
+
+   @await Html.PartialAsync("/Views/DefaultLayout/ScriptPartial.cshtml")
+</body>
+</html>

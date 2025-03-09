@@ -1,0 +1,31 @@
+﻿@using DTOLayer.DTOs.RoleDTOs
+@model List<AssignUserRoleDTO>
+@{
+    ViewData["Title"] = "AssignUserRole";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title" style="color:yellow">Rol Atama İşlemi:</h4>
+            <form class="form-group" method="post">
+               
+                    @for(int i = 0;i<Model.Count;i++)
+                    {
+                    <div class="form-check">
+                        <input type="hidden" asp-for="@Model[i].RoleId" />
+                        <input type="hidden" asp-for="@Model[i].RoleName" />
+                        @*Aşağıdaki input değeri eğer roleExist true ise işaretli gelcek değilse boş *@
+                        <input type="checkbox" asp-for="@Model[i].RoleExist" class="form-check-input" />
+                        @*Aşağıdaki labelımız roleExist'a göre hareket edecek ve roleName atayacak*@
+                        <label style="color:white" class="form-check-label" for="@Model[i].RoleExist">@Model[i].RoleName</label>
+                    </div>
+                    }
+               <button class="btn btn-info" style="margin-top:5px">Rolleri Ata</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+

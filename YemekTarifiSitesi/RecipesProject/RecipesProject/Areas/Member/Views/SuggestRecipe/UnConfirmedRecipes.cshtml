@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewData["Title"] = "UnConfirmedRecipes";
+    Layout = "~/Areas/Member/Views/Shared/_memberlayout.cshtml";
+    string text = "";
+    string style1 = "";
+}
+<style>
+    .messageimg {
+        border-radius: 50%;
+        width: 40px;
+        height: 35px;
+        margin-left: 10px
+    }
+</style>
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Onaylanmayan Yemek Tarifleri:</h4>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th> Resim: </th>
+                            <th> Yemek: </th>
+                            <th> Durum: </th>
+                            <th> Detaylar </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            if (x.RecipeStatus == true)
+                            {
+                                text = "Tarif Onaylandı.";
+                                style1 = "text-success";
+                            }
+                            else
+                            {
+                                text = "Tarif Onaylanmadı";
+                                style1 = "text-danger";
+                            }
+                            <tr>
+                                <td class="py-1">
+                                    <img src="@x.MealImage" alt="image" class="messageimg" />
+                                </td>
+                                <td> @x.MealName</td>
+                                <td style="font-weight:bold;" class="@style1"> @text </td>
+                                <td> <a href="/Member/SuggestRecipe/MealRecipeDetails/@x.MealId" class="btn btn-warning">Detaylar</a> </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

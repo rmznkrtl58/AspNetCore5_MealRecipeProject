@@ -1,0 +1,50 @@
+﻿@model CreateTeamCommand
+@{
+    ViewData["Title"] = "AddTeam";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Ekip Arkadaşları Ekleme Paneli (CQRS):</h4>
+            <form class="forms-sample" method="post" >
+                <div class="form-group">
+                    <label for="exampleInputName1">Ad Soyad:</label>
+                    <input type="text" asp-for="NameSurname" class="form-control" id="exampleInputName1" placeholder="Adı Soyadını Giriniz...">
+                    <span asp-validation-for="NameSurname"></span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Meslek:</label>
+                    @Html.TextBoxFor(x => x.Status, new { @class = "form-control", @rows = 5, @placeholder = "Mesleğini Giriniz..." })
+                    <span asp-validation-for="Status"></span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Linkedin Url:</label>
+                    @Html.TextBoxFor(x => x.LinkedinUrl, new { @class = "form-control", @rows = 5, @placeholder = "Linkedin Url'ini Giriniz..." })
+                    <span asp-validation-for="LinkedinUrl"></span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Instagram Url:</label>
+                    @Html.TextBoxFor(x => x.InstagramUrl, new { @class = "form-control", @rows = 5, @placeholder = "Instagram Url'ini Giriniz..." })
+                    <span asp-validation-for="InstagramUrl"></span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Twitter Url:</label>
+                    @Html.TextBoxFor(x => x.TwitterUrl, new { @class = "form-control", @rows = 5, @placeholder = "Twitter Url'ini Giriniz..." })
+                    <span asp-validation-for="TwitterUrl"></span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Resim Url:</label>
+                    @Html.TextBoxFor(x => x.Image, new { @class = "form-control", @rows = 5, @placeholder = "Resim Url'ini Giriniz..." })
+                    <span asp-validation-for="Image"></span>
+                </div>
+                <button class="btn btn-primary me-2">Kaydet</button>
+                <button class="btn btn-dark">İptal Et</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
